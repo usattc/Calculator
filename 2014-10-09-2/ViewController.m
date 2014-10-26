@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 TTC. All rights reserved.
 //
 //  此版本为自己编写的计算器, 修改以此版本为准
+//  GitHub测试
 
 #import "ViewController.h"
 #import "CalculatorModel.h"
@@ -38,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"GitHub测试");
     
     // 显示已经输入的数
     _displayLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 25, 200, 20)];
@@ -119,25 +122,25 @@
 }
 
 // 判断是不是数字
-- (BOOL)isDigit:(NSString*)title{
+- (BOOL)isDigit:(NSString*)title {
     char c = [title characterAtIndex:0];
     return (c >= '0' && c <= '9');
 }
 
 // 数字按钮处理事件
 // 几种异常情况:1.不能输入01这类 2.不能输入多个小数点
-- (void)digitBtnClick:(UIButton*)sender{
-    if([[sender currentTitle] isEqualToString:@"pai"]){
+- (void)digitBtnClick:(UIButton*)sender {
+    if([[sender currentTitle] isEqualToString:@"pai"]) {
         _resultLabel.text = [NSString stringWithFormat:@"%g", M_PI];
         return;
     }
     
-    else if([[sender currentTitle] isEqualToString:@"e"]){
+    else if([[sender currentTitle] isEqualToString:@"e"]) {
         _resultLabel.text = [NSString stringWithFormat:@"%g", M_E];
         return;
     }
     
-    else if([[sender currentTitle] isEqualToString:@"+/-"]){
+    else if([[sender currentTitle] isEqualToString:@"+/-"]) {
         double digit = [_resultLabel.text doubleValue];
         if ([_resultLabel.text isEqualToString:@"0"]) {
             return;
